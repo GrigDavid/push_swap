@@ -12,19 +12,31 @@
 
 #include "push_swap.h"
 
-int	*parser(int argc, char **argv)
+void    print_arr(int *arr, int len)
+{
+    int i;
+
+    i = 0;
+    while (i < len)
+	{
+		printf("%d\n", arr[i]);
+	    i++;
+	}
+}
+
+int *parser(int argc, char **argv)
 {
 	int	i;
 	int	*res;
 
-	i = 0;
+	i = 1;
 	res = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!res)
 		return (NULL);
-	while (i < argc - 1)
+	while (i < argc)
 	{
-		res[i] = ft_atoi(argv[i]);
-		if (res[i] == 0 && argv[i][0] != '0')
+		res[i - 1] = ft_atoi(argv[i]);
+		if (res[i - 1] == 0 && argv[i][0] != '0')
 		{
 			free(res);
 			return (NULL);
@@ -34,6 +46,8 @@ int	*parser(int argc, char **argv)
 	return (res);
 }
 
+
+
 int	main(int argc, char **argv)
 {
 	int *arr = parser(argc, argv);
@@ -42,11 +56,7 @@ int	main(int argc, char **argv)
 		write (1, "Gjvel es?\n", 10);
 		return (0);
 	}
-	while (argc > 1)
-	{
-		printf("%d\n", arr[argc]);
-		argc--;
-	}
+	print_arr(arr, argc - 1);
 	return (0);
 
 }
