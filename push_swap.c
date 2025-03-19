@@ -19,9 +19,10 @@ void	print_arr(int *arr, int len)
 	i = 0;
 	while (i < len)
 	{
-		printf("%d\n", arr[i]);
+		printf("%d ", arr[i]);
 		i++;
 	}
+	printf("\n");
 }
 
 void	ra(int *arr, int len)
@@ -80,49 +81,38 @@ void	push_swap(int *arr, int len)
 {
 	int	i;
 	int	max;
-	int	direction;
 	int	j;
+	int	*stack;
 
-
-	direction = 1;
-	max = 0;
-	i = 0;
+	stack = (int *)malloc(len * sizeof(int));
+	if (!stack)
+		return ;
 	while (len > 0)
 	{
 		j = 0;
+		i = 0;
+		max = 0;
 		while (i <= (len / 2) + (len % 2))
 		{
 			if (arr[i] > arr[max])
 			{
 				max = i;
-			direction = 1;
 			}
 			if (arr[len - 1 - i] > arr[max])
 			{
 				max = len - 1 - i;
-				direction = -1;
 			}
+			i++;
 		}
-		if (direction > 0)
+		while (max < len - 1)
 		{
-			while (j < i)
-			{
-				ra(arr, len);
-				j++;
-			}
+			rra(arr, len);
+			max++;
 		}
-		if (direction < 0)
-		{
-			while (j < i)
-			{
-				rra(arr, len);
-				j++;
-			}
-		}
-		////pa
+		print_arr(arr, len);
 		len--;
 	}
-
+	while ()
 }
 
 int	main(int argc, char **argv)
@@ -135,8 +125,9 @@ int	main(int argc, char **argv)
 		write (1, "Gjvel es?\n", 10);
 		return (0);
 	}
-	rra(arr, argc - 1);
-	print_arr(arr, argc - 1);
+	push_swap(arr, argc - 1);
+	//rra(arr, argc - 1);
+	//print_arr(arr, argc - 1);
 	return (0);
 }
 
