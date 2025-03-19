@@ -12,19 +12,49 @@
 
 #include "push_swap.h"
 
-void    print_arr(int *arr, int len)
+void	print_arr(int *arr, int len)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < len)
+	i = 0;
+	while (i < len)
 	{
 		printf("%d\n", arr[i]);
-	    i++;
+		i++;
 	}
 }
 
-int *parser(int argc, char **argv)
+void	ra(int *arr, int len)
+{
+	int	swap;
+	int	i;
+	
+	i = 1;
+	swap = arr[0];
+	while (i < len)
+	{
+		arr[i - 1] = arr[i];
+		i++;
+	}
+	arr[i - 1] = swap;
+}
+
+void	rra(int *arr, int len)
+{
+	int	swap;
+	int	i;
+
+	i = len - 2;
+	swap = arr[len - 1];
+	while (i >= 0)
+	{
+		arr[i + 1] = arr[i];
+		i--;
+	}
+	arr[0] = swap;
+}
+
+int	*parser(int argc, char **argv)
 {
 	int	i;
 	int	*res;
@@ -46,26 +76,26 @@ int *parser(int argc, char **argv)
 	return (res);
 }
 
-
-
 int	main(int argc, char **argv)
 {
-	int *arr = parser(argc, argv);
+	int	*arr;
+
+	arr = parser(argc, argv);
 	if (!arr)
 	{
 		write (1, "Gjvel es?\n", 10);
 		return (0);
 	}
+	rra(arr, argc - 1);
 	print_arr(arr, argc - 1);
 	return (0);
-
 }
 
 // void	ra(int argc, char **argv)
 // {
 // 	char	*swap = argv[1];
 // 	int		i;
-	
+
 // 	i = 2;
 // 	while ()
 
