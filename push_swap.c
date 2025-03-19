@@ -28,7 +28,7 @@ void	ra(int *arr, int len)
 {
 	int	swap;
 	int	i;
-	
+
 	i = 1;
 	swap = arr[0];
 	while (i < len)
@@ -74,6 +74,55 @@ int	*parser(int argc, char **argv)
 		i++;
 	}
 	return (res);
+}
+
+void	push_swap(int *arr, int len)
+{
+	int	i;
+	int	max;
+	int	direction;
+	int	j;
+
+
+	direction = 1;
+	max = 0;
+	i = 0;
+	while (len > 0)
+	{
+		j = 0;
+		while (i <= (len / 2) + (len % 2))
+		{
+			if (arr[i] > arr[max])
+			{
+				max = i;
+			direction = 1;
+			}
+			if (arr[len - 1 - i] > arr[max])
+			{
+				max = len - 1 - i;
+				direction = -1;
+			}
+		}
+		if (direction > 0)
+		{
+			while (j < i)
+			{
+				ra(arr, len);
+				j++;
+			}
+		}
+		if (direction < 0)
+		{
+			while (j < i)
+			{
+				rra(arr, len);
+				j++;
+			}
+		}
+		////pa
+		len--;
+	}
+
 }
 
 int	main(int argc, char **argv)
