@@ -101,13 +101,14 @@ void	push_swap(int *arr, int len)
 	int	max;
 	int	j;
 	int	*stack;
-
+	
+	j = len;
 	stack = (int *)malloc(len * sizeof(int));
 	if (!stack)
 		return ;
 	while (len > 0)
 	{
-		j = 0;
+
 		i = 0;
 		max = 0;
 		while (i <= (len / 2) + (len % 2))
@@ -139,12 +140,18 @@ void	push_swap(int *arr, int len)
 				ra(arr, len);
 				printf("ra\n");
 				max--;
-				print_arr(arr, len);
+				//print_arr(arr, len);
 			}
 		}
-		print_arr(arr, len);
+		//print_arr(arr, len);
 		printf("pb\n");
 		len--;
+	}
+	while (j > 0)
+	{
+		printf("pa\n");
+		len++;
+		j--;
 	}
 	//while ()
 }
