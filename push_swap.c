@@ -96,6 +96,7 @@ int	*parser(int argc, char **argv)
 
 void	push_swap(int *arr, int len)
 {
+	print_arr(arr, len);
 	int	i;
 	int	max;
 	int	j;
@@ -121,12 +122,28 @@ void	push_swap(int *arr, int len)
 			}
 			i++;
 		}
-		while (max < len - 1)
+		if (max >= len / 2)
 		{
-			rra(arr, len);
-			max++;
+			while (max < len - 1)
+			{
+				rra(arr, len);
+				printf("rra\n");
+				max++;
+				print_arr(arr, len);
+			}
+		}
+		else
+		{
+			while (max >= 0)
+			{
+				ra(arr, len);
+				printf("ra\n");
+				max--;
+				print_arr(arr, len);
+			}
 		}
 		print_arr(arr, len);
+		printf("pb\n");
 		len--;
 	}
 	//while ()
@@ -142,9 +159,9 @@ int	main(int argc, char **argv)
 		write (1, "Gjvel es?\n", 10);
 		return (0);
 	}
-	//push_swap(arr, argc - 1);
+	push_swap(arr, argc - 1);
 	//rra(arr, argc - 1);
-	print_arr(arr, argc - 1);
+	//print_arr(arr, argc - 1);
 	return (0);
 }
 
