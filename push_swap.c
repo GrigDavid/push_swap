@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+void	reverse(int *arr, int len)
+{
+	int swap;
+	int	i;
+
+	i = 0;
+	while (i < len / 2)
+	{
+		swap = arr[i];
+		arr[i] = arr[len - i - 1];
+		arr[len - i - 1] = swap;
+		i++;
+	}
+}
+
+
 void	print_arr(int *arr, int len)
 {
 	int	i;
@@ -67,13 +83,14 @@ int	*parser(int argc, char **argv)
 	while (i < argc)
 	{
 		res[i - 1] = ft_atoi(argv[i]);
-		if (res[i - 1] == 0 && argv[i][0] != '0')
+		if (res[i - 1] == 0)
 		{
 			free(res);
 			return (NULL);
 		}
 		i++;
 	}
+	reverse(res, argc - 1);
 	return (res);
 }
 
@@ -112,7 +129,7 @@ void	push_swap(int *arr, int len)
 		print_arr(arr, len);
 		len--;
 	}
-	while ()
+	//while ()
 }
 
 int	main(int argc, char **argv)
@@ -125,9 +142,9 @@ int	main(int argc, char **argv)
 		write (1, "Gjvel es?\n", 10);
 		return (0);
 	}
-	push_swap(arr, argc - 1);
+	//push_swap(arr, argc - 1);
 	//rra(arr, argc - 1);
-	//print_arr(arr, argc - 1);
+	print_arr(arr, argc - 1);
 	return (0);
 }
 
