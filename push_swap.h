@@ -13,8 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdio.h>
+//# include <unistd.h>
+# include "./ft_printf/ft_printf.h"
 # include <stdlib.h>
 
 int		ft_atoi(const char *str);
