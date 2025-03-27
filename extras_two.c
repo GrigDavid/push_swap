@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   extras_two.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 16:25:13 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/03/19 16:25:15 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/02/07 17:18:46 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/02/07 17:20:49 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-//# include <unistd.h>
-# include "ft_printf.h"
-# include <stdlib.h>
+char	*ft_strchr(const char *s, int c)
+{
+	size_t			len;
+	unsigned char	*p;
 
-int		ft_atoi(const char *str);
-int		*parser(int argc, char **argv);
+	len = ft_strlen(s);
+	p = (unsigned char *)s;
+	while ((unsigned char *)s + len >= p)
+	{
+		if (*p == (unsigned char)c)
+			return ((char *)p);
+		p++;
+	}
+	return (0);
+}
 
-#endif
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
