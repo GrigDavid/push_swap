@@ -18,4 +18,8 @@
 # include "ft_printf.h"
 # include <stdlib.h>
 
+int		*parser(int argc, char **argv);
+void	normalise(int *a, int *b, int len);
+void	sort(int *arr, int len);
+
 #endif

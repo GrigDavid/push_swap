@@ -50,34 +50,6 @@ void	reverse(int *arr, int len)
 	}
 }
 
-int	*parser(int argc, char **argv)
-{
-	int	i;
-	int	*res;
-	int	j;
-
-	i = 0;
-	argc--;
-	res = (int *)malloc(sizeof(int) * argc);
-	if (!res)
-		return (NULL);
-	while (i < argc)
-	{
-		res[i] = ft_atoi(argv[i + 1]);
-		j = 0;
-		while (j < i)
-		{
-			if (res[j] == res[i])
-				return (free(res), NULL);
-			j++;
-		}
-		if (res[i] == 0 && !(argv[i + 1][0] == '0' && !argv[i + 1][1]))
-			return (free(res), NULL);
-		i++;
-	}
-	return (res);
-}
-
 void	print_arr(int *arr, int len)
 {
 	int	i;
@@ -91,7 +63,6 @@ void	print_arr(int *arr, int len)
 	ft_printf("\n");
 }
 
-
 void	swap(int *arr, int a, int b)
 {
 	int	swap;
@@ -99,26 +70,6 @@ void	swap(int *arr, int a, int b)
 	swap = arr[a];
 	arr[a] = arr[b];
 	arr[b] = swap;
-}
-
-void	normalise(int *a, int *b, int len)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < len)
-	{
-		if (a[i] == b[j])
-		{
-			a[i] = j + 1;
-			j = 0;
-			i++;
-		}
-		else
-			j++;
-	}
 }
 
 int	*arr_cpy(int *arr, int len)
@@ -138,35 +89,13 @@ int	*arr_cpy(int *arr, int len)
 	return (res);
 }
 
-void	sort(int *arr, int len)
-{
-	int	i;
-	int	j;
-	int	min;
-
-	i = 0;
-	j = 1;
-	min = 0;
-	while (i < len)
-	{
-		if (j == len)
-		{
-			swap(arr, i, min);
-			i++;
-			min = i;
-			j = i;
-		}
-		else if (arr[j] < arr[min])
-			min = j;
-		j++;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	int	*arr;
 	int	*b;
 
+	if (argc < 2)
+		return (0);
 	arr = parser(argc, argv);
 	if (!arr)
 		return (0);
@@ -175,6 +104,7 @@ int	main(int argc, char **argv)
 		return (free(arr), 0);
 	sort(b, argc - 1);
 	normalise(arr, b, argc - 1);
+	free(b);
 	print_arr(arr, argc - 1);
 	free(arr);
 	return (0);
