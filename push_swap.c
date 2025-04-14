@@ -44,7 +44,6 @@ int	ft_atoi(const char *str)
 	return (sign * num);
 }
 
-
 int	*arr_cpy(int *arr, int len)
 {
 	int	*res;
@@ -79,9 +78,14 @@ int	main(int argc, char **argv)
 	sort(b, argc - 1);
 	normalise(arr, b, argc - 1);
 	free(b);
-	//print_arr(arr, argc - 1);
 	lst = lst_ise(arr, argc - 1);
-	//ft_printf("%d ", (ft_lstlast(*lst))->content);
+	ft_lstiter(lst, ft_putnbr);
+	ft_printf("\n");
+	// rra(&lst);
+	// ft_printf("\n");
+	// ft_lstiter(lst, ft_putnbr);
+	ft_printf("\n");
+	sa(&lst);
 	ft_lstiter(lst, ft_putnbr);
 	return (0);
 }

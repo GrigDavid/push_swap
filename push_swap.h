@@ -40,5 +40,10 @@ void	ft_putnbr(int n);
 void	sort(int *arr, int len);
 void	normalise(int *a, int *b, int len);
 int		*parser(int argc, char **argv);
+//
+void	ra(t_list **lst);
+void	rra(t_list **lst);
+void	sa(t_list **t_list);
+void	pa(t_list **a, t_list **b);
 
 #endif
