@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(int))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*p;
 

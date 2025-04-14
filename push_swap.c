@@ -12,6 +12,15 @@
 
 #include "push_swap.h"
 
+void	print_arr(int *arr, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+		ft_printf("%d ", arr[i++]);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	sign;
@@ -55,8 +64,9 @@ int	*arr_cpy(int *arr, int len)
 
 int	main(int argc, char **argv)
 {
-	int	*arr;
-	int	*b;
+	int		*arr;
+	int		*b;
+	t_list	**lst;
 
 	if (argc < 2)
 		return (0);
@@ -70,6 +80,8 @@ int	main(int argc, char **argv)
 	normalise(arr, b, argc - 1);
 	free(b);
 	//print_arr(arr, argc - 1);
-	
+	lst = lst_ise(arr, argc - 1);
+	//ft_printf("%d ", (ft_lstlast(*lst))->content);
+	//ft_lstiter(*lst, ft_putnbr);
 	return (0);
 }

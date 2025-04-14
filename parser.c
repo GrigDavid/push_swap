@@ -60,7 +60,14 @@ void	normalise(int *a, int *b, int len)
 	}
 }
 
+void	swap(int *arr, int a, int b)
+{
+	int	tmp;
 
+	tmp = arr[a];
+	arr[a] = arr[b];
+	arr[b] = tmp;
+}
 
 void	sort(int *arr, int len)
 {
@@ -86,13 +93,14 @@ void	sort(int *arr, int len)
 	}
 }
 
-t_list	**lstize(int *arr, int len)
+t_list	**lst_ise(int *arr, int len)
 {
 	t_list	**lst;
 	int		i;
 	t_list	*tmp;
 
 	i = 0;
+	lst = 0;
 	while (i < len)
 	{
 		tmp = ft_lstnew(arr[i++]);
@@ -101,8 +109,13 @@ t_list	**lstize(int *arr, int len)
 			ft_lstclear(lst);
 			return (NULL);
 		}
-		ft_lstadd_back(lst, tmp);
-		free(tmp);
+		ft_printf("temp next: %p\n", tmp->next);
+		if (!lst)
+			lst = &tmp;
+		else
+			ft_lstadd_back(lst, tmp);
+		//ft_printf("%d ", (*lst)->content);
+		//ft_printf("%p ", (*lst)->next);
 	}
 	free(arr);
 	return (lst);

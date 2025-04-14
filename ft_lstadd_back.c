@@ -14,10 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	ft_printf("%p\n", (new)->next);
+	
 	if (!new)
 		return ;
 	if (!*lst)
 		*lst = new;
 	else
 		ft_lstlast(*lst)->next = new;
+	//ft_printf("%p \n", *lst);
 }
