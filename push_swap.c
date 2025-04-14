@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 {
 	int		*arr;
 	int		*b;
-	t_list	**lst;
+	t_list	*lst;
 
 	if (argc < 2)
 		return (0);
@@ -82,6 +82,6 @@ int	main(int argc, char **argv)
 	//print_arr(arr, argc - 1);
 	lst = lst_ise(arr, argc - 1);
 	//ft_printf("%d ", (ft_lstlast(*lst))->content);
-	//ft_lstiter(*lst, ft_putnbr);
+	ft_lstiter(lst, ft_putnbr);
 	return (0);
 }

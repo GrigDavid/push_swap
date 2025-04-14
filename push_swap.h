@@ -34,7 +34,7 @@ void	ft_lstclear(t_list **lst);
 void	ft_lstiter(t_list *lst, void (*f)(int));
 t_list	*ft_lstmap(t_list *lst, int (*f)(int));
 //
-t_list	**lst_ise(int *arr, int len);
+t_list	*lst_ise(int *arr, int len);
 //
 void	ft_putnbr(int n);
 void	sort(int *arr, int len);

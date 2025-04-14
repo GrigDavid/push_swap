@@ -93,9 +93,9 @@ void	sort(int *arr, int len)
 	}
 }
 
-t_list	**lst_ise(int *arr, int len)
+t_list	*lst_ise(int *arr, int len)
 {
-	t_list	**lst;
+	t_list	*lst;
 	int		i;
 	t_list	*tmp;
 
@@ -106,16 +106,13 @@ t_list	**lst_ise(int *arr, int len)
 		tmp = ft_lstnew(arr[i++]);
 		if (!tmp)
 		{
-			ft_lstclear(lst);
+			ft_lstclear(&lst);
 			return (NULL);
 		}
-		ft_printf("temp next: %p\n", tmp->next);
 		if (!lst)
-			lst = &tmp;
+			lst = tmp;
 		else
-			ft_lstadd_back(lst, tmp);
-		//ft_printf("%d ", (*lst)->content);
-		//ft_printf("%p ", (*lst)->next);
+			ft_lstadd_back(&lst, tmp);
 	}
 	free(arr);
 	return (lst);
