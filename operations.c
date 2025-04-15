@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ra(t_list **lst)
+void	ra(t_list **lst) //123 -> 231
 {
 	t_list	*tmp;
 
@@ -13,7 +13,7 @@ void	ra(t_list **lst)
 	//write(1, "ra\n", 3);
 }
 
-void	rra(t_list **lst)
+void	rra(t_list **lst) //123 -> 312
 {
 	t_list	*tmp;
 	t_list	*end;

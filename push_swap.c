@@ -85,8 +85,8 @@ int	main(int argc, char **argv)
 	// ra(&lst);
 	// ft_lstiter(lst, ft_putnbr);
 	algo(&lst, &swp);
-	ft_lstiter(lst, ft_putnbr);
-	ft_printf("\n");
-	ft_lstiter(swp, ft_putnbr);
+	// ft_lstiter(lst, ft_putnbr);
+	// ft_printf("\n");
+	// ft_lstiter(swp, ft_putnbr);
 	return (0);
 }
