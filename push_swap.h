@@ -45,5 +45,7 @@ void	ra(t_list **lst);
 void	rra(t_list **lst);
 void	sa(t_list **t_list);
 void	pa(t_list **a, t_list **b);
+//
+void	algo(t_list **a, t_list **b);
 
 #endif

@@ -4,6 +4,8 @@ void	ra(t_list **lst)
 {
 	t_list	*tmp;
 
+	if (!(*lst)->next)
+		return ;
 	tmp = *lst;
 	*lst = (*lst)->next;
 	ft_lstlast(*lst)->next = tmp;
@@ -16,6 +18,8 @@ void	rra(t_list **lst)
 	t_list	*tmp;
 	t_list	*end;
 
+	if (!(*lst)->next)
+		return ;
 	tmp = *lst;
 	while (tmp->next->next)
 		tmp = tmp->next;
@@ -30,6 +34,8 @@ void	sa(t_list **lst)
 {
 	t_list	*tmp;
 
+	if (!(*lst)->next)
+		return ;
 	tmp = (*lst)->next;
 	(*lst)->next = (*lst)->next->next;
 	tmp->next = *lst;
@@ -39,7 +45,7 @@ void	sa(t_list **lst)
 
 void	pa(t_list **a, t_list **b)
 {
-	t_list	tmp;
+	t_list	*tmp;
 
 	tmp = *a;
 	*a = (*a)->next;

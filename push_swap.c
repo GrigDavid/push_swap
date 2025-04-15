@@ -66,6 +66,9 @@ int	main(int argc, char **argv)
 	int		*arr;
 	int		*b;
 	t_list	*lst;
+	t_list	*swp;
+
+	swp = NULL;
 
 	if (argc < 2)
 		return (0);
@@ -79,13 +82,11 @@ int	main(int argc, char **argv)
 	normalise(arr, b, argc - 1);
 	free(b);
 	lst = lst_ise(arr, argc - 1);
-	ft_lstiter(lst, ft_putnbr);
-	ft_printf("\n");
-	// rra(&lst);
-	// ft_printf("\n");
+	// ra(&lst);
 	// ft_lstiter(lst, ft_putnbr);
-	ft_printf("\n");
-	sa(&lst);
+	algo(&lst, &swp);
 	ft_lstiter(lst, ft_putnbr);
+	ft_printf("\n");
+	ft_lstiter(swp, ft_putnbr);
 	return (0);
 }
