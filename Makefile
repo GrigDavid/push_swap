@@ -1,19 +1,19 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/27 15:28:27 by dgrigor2          #+#    #+#              #
-#    Updated: 2025/02/07 17:20:20 by dgrigor2         ###   ########.fr        #
+#    Updated: 2025/04/17 18:53:10 by dgrigor2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC  = cc
 CFLAGS = -Wall -Wextra -Werror
 DEPS = ft_printf.h push_swap.h
-NAME = push_swap.out
+NAME = push_swap
 SRCS = babshka.c ft_printf.c ft_putnbr.c extras.c extras_two.c push_swap.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstclear.c ft_lstiter.c ft_lstmap.c parser.c operations.c
 OBJS = $(SRCS:.c=.o)
 LIBA = $(CC) -o

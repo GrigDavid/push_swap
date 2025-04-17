@@ -61,7 +61,7 @@ void	pa(t_list **a, t_list **b, int stack)
 	tmp->next = *b;
 	*b = tmp;
 	if (stack)
-		write(1, "pa\n", 3);
-	else
 		write(1, "pb\n", 3);
+	else
+		write(1, "pa\n", 3);
 }
