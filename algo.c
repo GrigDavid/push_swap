@@ -105,16 +105,16 @@ void	frik(t_list **a, t_list **b)
 	{
 		if ((*a)->content > 2 * size / 3 + margin)
 		{
-			ra(a);
+			ra(a, 1);
 		}
 		else if ((*a)->content > size / 3 + margin)
 		{
-			pa(a, b);
+			pa(a, b, 1);
 		}
 		else
 		{
-			pa(a, b);
-			ra(b);
+			pa(a, b, 1);
+			ra(b, 0);
 		}
 		i++;
 	}
@@ -132,16 +132,16 @@ void	alt_frik(t_list **a, t_list **b, int size)
 	{
 		if ((*a)->content > 2 * size / 3 + margin)
 		{
-			ra(a);
+			ra(a, 1);
 		}
 		else if ((*a)->content > size / 3 + margin)
 		{
-			pa(a, b);
+			pa(a, b, 1);
 		}
 		else
 		{
-			pa(a, b);
-			ra(b);
+			pa(a, b, 1);
+			ra(b, 0);
 		}
 		i++;
 	}
