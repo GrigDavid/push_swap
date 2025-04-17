@@ -75,12 +75,14 @@ void	sort_n(t_list **a, t_list **b, int n)
 	}
 }
 
-int	puchur(t_list *lst)
+int	puchur(t_list *lst, int size)
 {
 	int	min;
+	int	i;
 	
+	i = 0;
 	min = lst->content;
-	while (lst)
+	while (i++ < size)
 	{
 		if (lst->content < min)
 			min = lst->content;
@@ -94,10 +96,37 @@ void	frik(t_list **a, t_list **b)
 	int	i;
 	int	size;
 	int	margin;
-
-	margin = puchur(*a) - 1;
-	i = 0;
+	
 	size = ft_lstsize(*a);
+	margin = puchur(*a, size) - 1;
+	i = 0;
+	//ft_printf("\n\nmargin: %d\n\n", margin);
+	while (i < size)
+	{
+		if ((*a)->content > 2 * size / 3 + margin)
+		{
+			ra(a);
+		}
+		else if ((*a)->content > size / 3 + margin)
+		{
+			pa(a, b);
+		}
+		else
+		{
+			pa(a, b);
+			ra(b);
+		}
+		i++;
+	}
+}
+
+void	alt_frik(t_list **a, t_list **b, int size)
+{
+	int	i;
+	int	margin;
+
+	margin = puchur(*a, size) - 1;
+	i = 0;
 	//ft_printf("\n\nmargin: %d\n\n", margin);
 	while (i < size)
 	{
@@ -120,8 +149,15 @@ void	frik(t_list **a, t_list **b)
 
 void	algo(t_list **a, t_list **b)
 {
-	while (ft_lstsize(*a) > 5)
+	if (ft_lstsize(*a) > 5)
+	{
 		frik(a, b);
+		algo(a, b);
+	
+	
+	
+	
+	}
 	sort_n(a, b, ft_lstsize(*a));
 	ft_lstiter(*a, ft_putnbr);
 	ft_printf(" ->a\n");

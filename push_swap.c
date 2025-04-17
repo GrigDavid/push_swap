@@ -84,7 +84,8 @@ int	main(int argc, char **argv)
 	lst = lst_ise(arr, argc - 1);
 	// ra(&lst);
 	// ft_lstiter(lst, ft_putnbr);
-	algo(&lst, &swp);
+
+	babshka(&lst, &swp);
 	// ft_lstiter(lst, ft_putnbr);
 	// ft_printf("\n");
 	// ft_lstiter(swp, ft_putnbr);

@@ -41,11 +41,12 @@ void	sort(int *arr, int len);
 void	normalise(int *a, int *b, int len);
 int		*parser(int argc, char **argv);
 //
-void	ra(t_list **lst);
-void	rra(t_list **lst);
-void	sa(t_list **t_list);
-void	pa(t_list **a, t_list **b);
+void	ra(t_list **lst, int stack);
+void	rra(t_list **lst, int stack);
+void	sa(t_list **t_list, int stack);
+void	pa(t_list **a, t_list **b, int stack);
 //
-void	algo(t_list **a, t_list **b);
+void	babshka(t_list **a, t_list **b);
+//void	algo(t_list **a, t_list **b);
 
 #endif

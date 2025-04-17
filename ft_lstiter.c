@@ -20,6 +20,7 @@ void	ft_lstiter(t_list *lst, void (*f)(int))
 	while (p && f)
 	{
 		f(p->content);
+		write(1, " ", 1);
 		p = p->next;
 	}
 }
