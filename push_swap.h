@@ -47,6 +47,7 @@ void	sa(t_list **t_list, int stack);
 void	pa(t_list **a, t_list **b, int stack);
 //
 void	babshka(t_list **a, t_list **b);
+void	sort_three(t_list **lst);
 //void	algo(t_list **a, t_list **b);
 
 #endif
