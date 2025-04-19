@@ -1,33 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   babshka.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/18 17:41:27 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/04/18 17:41:28 by dgrigor2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+#include <limits.h>
 
-int	closest(int a, t_list **b)
+int	closest(int a, t_list *b)
 {
-	int	i;
-	int	len;
-	t_list	*start;
+	int		min;
+	int		i;
+	int		min_i;
+	int		size;
 
-	start = *b;
-	len = ft_lstsize(*b);
+	min = INT_MAX;
+	size = ft_lstsize(b);
 	i = 0;
-	while (*b)
+	while (b)
 	{
-		if (a - ((*b)->content) == 1)
+		if  (a - b->content < min)
 		{
-			*b = start;
-			if (i > (len / 2))
-			{
-				return (i - ft_lstsize(*b));
-			}
-			else
-			{
-				return (i);
-			}
+			min = a - b->content;
+			min_i = i;
 		}
 		i++;
-		*b = (*b)->next;
+		b = b->next;
 	}
-	*b = start;
-	return (0);
+	if (min_i > size / 2)
+		min_i = -(size - min_i);
+	return (min_i);
 }
 
 void	babshka(t_list **a, t_list **b)
@@ -37,39 +45,77 @@ void	babshka(t_list **a, t_list **b)
 	int	o_size;
 	int	chunks;
 
-	chunks = 5;
+	//ankap
+	int k;
+	int mov;
+
+	chunks = 2;
 	size = ft_lstsize(*a);
-	i = 1;
+	i = 0;
 	o_size = size;
-	while (i < chunks)
+	while (i < chunks / 2)
 	{
-		while (size > 2+o_size * (chunks - i) / chunks)
+		size = ft_lstsize(*a);
+		while (size > 0)
 		{
-			if ((*a)->content < (o_size * i) / chunks)
+			if ((*a)->content < (o_size * (i + 1)) / chunks && (*a)->content > (o_size * i / chunks))
 			{
-				size--;
 				pa(a, b, 1);
+				if (size < 99 &&(*b)->content < (*b)->next->content)
+						ra(b, 0);
 			}
 			else
 				ra(a, 1);
+			size--;
 		}
 		i++;
 	}
-	while (size > 3)
+	while (*b)
 	{
-		if ((*a)->content <= o_size - 3)
+		k = 0;
+		mov = closest((*a)->content, *b);
+		if (mov > 0)
 		{
-			size--;
-			pa(a, b, 1);
+			while (k < mov)
+			{
+				ra(b, 0);
+				k++;
+			}
 		}
-		else
-			ra(a, 1);
+		else if (mov < 0)
+		{
+			while (k > mov)
+			{
+				rra(b, 0);
+				k--;
+			}
+		}
+		pa(b, a, 0);
+		ra(a, 1);
+	}
+	size = 100;
+	while (i < chunks)
+	{
+		size = ft_lstsize(*a);
+		while (size > 0)
+		{
+			if ((*a)->content < (o_size * (i + 1)) / chunks && (*a)->content > (o_size * i / chunks))
+			{
+				pa(a, b, 1);
+				if (size < 99 &&(*b)->content < (*b)->next->content)
+						ra(b, 0);
+			}
+			else
+				ra(a, 1);
+			size--;
+		}
+		i++;
 	}
 	sort_three(a);
 	while (*b)
 	{
 		i = 0;
-		size = closest((*a)->content, b);
+		size = closest((*a)->content, *b);
 		if (size > 0)
 		{
 			while (i < size)
@@ -78,7 +124,7 @@ void	babshka(t_list **a, t_list **b)
 				i++;
 			}
 		}
-		else if(size < 0)
+		else if (size < 0)
 		{
 			while (i > size)
 			{

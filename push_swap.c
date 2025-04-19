@@ -64,31 +64,31 @@ int	*arr_cpy(int *arr, int len)
 int	main(int argc, char **argv)
 {
 	int		*arr;
-	int		*b;
-	t_list	*lst;
-	t_list	*swp;
+	int		*swp;
+	t_list	*a;
+	t_list	*b;
 
-	swp = NULL;
-
+	b = NULL;
 	if (argc < 2)
 		return (0);
 	arr = parser(argc, argv);
 	if (!arr)
 		return (0);
-	b = arr_cpy(arr, argc - 1);
-	if (!b)
+	swp = arr_cpy(arr, argc - 1);
+	if (!swp)
 		return (free(arr), 0);
-	sort(b, argc - 1);
-	normalise(arr, b, argc - 1);
-	free(b);
-	lst = lst_ise(arr, argc - 1);
+	sort(swp, argc - 1);
+	normalise(arr, swp, argc - 1);
+	free(swp);
+	a = lst_ise(arr, argc - 1);
+	//free(arr);
 	// ra(&lst);
 	// ft_lstiter(lst, ft_putnbr);
-
-	babshka(&lst, &swp);
+	babshka(&a, &b);
 	// ft_lstiter(lst, ft_putnbr);
 	// ft_printf("\n");
 	// ft_lstiter(swp, ft_putnbr);
-	ft_lstclear(&lst, &swp);
+	ft_lstclear(&a);
+	ft_lstclear(&b);
 	return (0);
 }
