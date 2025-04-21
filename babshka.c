@@ -38,100 +38,62 @@ int	closest(int a, t_list *b)
 	return (min_i);
 }
 
+int	min_val(t_list *a)
+{
+	int	min;
+
+	min = a->content;
+	while (a)
+	{
+		if (a->content < min)
+		{
+			min = a->content;
+		}
+		a = a->next;
+	}
+	return (min);
+}
+
 void	babshka(t_list **a, t_list **b)
 {
-	int	i;
-	int	size;
-	int	o_size;
-	int	chunks;
+	int	n;
+	int	k;
 
-	//ankap
-	int k;
-	int mov;
-
-	chunks = 2;
-	size = ft_lstsize(*a);
-	i = 0;
-	o_size = size;
-	while (i < chunks / 2)
+	k  = 14;
+	n = 1;
+	while (*a)
 	{
-		size = ft_lstsize(*a);
-		while (size > 0)
+		if ((*a)->content <= n)
 		{
-			if ((*a)->content < (o_size * (i + 1)) / chunks && (*a)->content > (o_size * i / chunks))
-			{
-				pa(a, b, 1);
-				if (size < 99 &&(*b)->content < (*b)->next->content)
-						ra(b, 0);
-			}
-			else
-				ra(a, 1);
-			size--;
+			pa(a, b, 1);
+			n++;
 		}
-		i++;
+		else if ((*a)->content <= n + k)
+		{
+			pa(a, b, 1);
+			ra(b, 0);
+			n++;
+		}
+		else
+		{
+			ra(a, 1);
+		}
 	}
+	//sort_three(a);
+	n = 100;
 	while (*b)
 	{
-		k = 0;
-		mov = closest((*a)->content, *b);
-		if (mov > 0)
+		r = closest(n, *b);
+		while (r > 0)
 		{
-			while (k < mov)
-			{
-				ra(b, 0);
-				k++;
-			}
+			ra(b, 0);
+			r--;
 		}
-		else if (mov < 0)
+		while (r < 0)
 		{
-			while (k > mov)
-			{
-				rra(b, 0);
-				k--;
-			}
+			rra(b, 0);
+			r++;
 		}
-		pa(b, a, 0);
-		ra(a, 1);
-	}
-	size = 100;
-	while (i < chunks)
-	{
-		size = ft_lstsize(*a);
-		while (size > 0)
-		{
-			if ((*a)->content < (o_size * (i + 1)) / chunks && (*a)->content > (o_size * i / chunks))
-			{
-				pa(a, b, 1);
-				if (size < 99 &&(*b)->content < (*b)->next->content)
-						ra(b, 0);
-			}
-			else
-				ra(a, 1);
-			size--;
-		}
-		i++;
-	}
-	sort_three(a);
-	while (*b)
-	{
-		i = 0;
-		size = closest((*a)->content, *b);
-		if (size > 0)
-		{
-			while (i < size)
-			{
-				ra(b, 0);
-				i++;
-			}
-		}
-		else if (size < 0)
-		{
-			while (i > size)
-			{
-				rra(b, 0);
-				i--;
-			}
-		}
-		pa(b, a, 0);
+		pa (b, a, 0);
 	}
 }
