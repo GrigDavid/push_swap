@@ -14,22 +14,28 @@
 
 void	sort_three(t_list **lst)
 {
-	if ((*lst)->content < (*lst)->next->content && (*lst)->next->content > (*lst)->next->next->content) //132 231
+	if ((*lst)->content < (*lst)->next->content)
 	{
-		rra(lst, 1); //213 123
-		if ((*lst)->content > (*lst)->next->content) //213
-			sa(lst, 1); //123
+		if ((*lst)->next->content > (*lst)->next->next->content)
+		{
+			rra(lst, 1);
+			if ((*lst)->content > (*lst)->next->content)
+				sa(lst, 1);
+		}
 	}
-	else if ((*lst)->content > (*lst)->next->content && (*lst)->next->content < (*lst)->next->next->content) //213 312
+	else if ((*lst)->content > (*lst)->next->content)
 	{
-		if ((*lst)->content < (*lst)->next->next->content) //213
-			sa(lst, 1); //123
-		else //312
+		if ((*lst)->next->content > (*lst)->next->next->content)
+		{
 			ra(lst, 1);
-	}
-	else if ((*lst)->content > (*lst)->next->content && (*lst)->next->content > (*lst)->next->next->content) //321
-	{
-		ra(lst, 1);
-		sa(lst, 1);
+			sa(lst, 1);
+		}
+		else if ((*lst)->next->content < (*lst)->next->next->content)
+		{
+			if ((*lst)->content < (*lst)->next->next->content)
+				sa(lst, 1);
+			else
+				ra(lst, 1);
+		}
 	}
 }

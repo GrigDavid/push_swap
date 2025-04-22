@@ -12,6 +12,23 @@
 
 #include "push_swap.h"
 
+int	check_zero(char *str)
+{
+	if (!ft_strncmp(str, "0", 2))
+	{
+		return (1);
+	}
+	else if (!ft_strncmp(str, "+0", 3))
+	{
+		return (1);
+	}
+	else if (!ft_strncmp(str, "-0", 3))
+	{
+		return (1);
+	}
+	return (0);
+}
+
 int	*parser(int argc, char **argv)
 {
 	int	i;
@@ -33,7 +50,7 @@ int	*parser(int argc, char **argv)
 				return (free(res), NULL);
 			j++;
 		}
-		if (res[i] == 0 && !(argv[i + 1][0] == '0' && !argv[i + 1][1]))
+		if (res[i] == 0 && !check_zero(argv[i + 1]))
 			return (free(res), NULL);
 		i++;
 	}

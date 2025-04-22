@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 void	print_arr(int *arr, int len)
 {
@@ -23,25 +24,31 @@ void	print_arr(int *arr, int len)
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	num;
+	int		sign;
+	long	num;
 
-	sign = 1;
+	sign = 0;
 	num = 0;
 	if (*str == '-')
 	{
-		sign *= -1;
+		sign = -1;
 		str++;
 	}
+	else if (*str == '+')
+		str++;
 	while (*str)
 	{
 		if (*str >= '0' && *str <= '9')
 			num = 10 * num + *str - '0';
 		else
 			return (0);
+		if (num + sign > INT_MAX)
+			return (0);
 		str++;
 	}
-	return (sign * num);
+	if (sign)
+		num *= sign;
+	return (num);
 }
 
 int	*arr_cpy(int *arr, int len)
@@ -81,13 +88,7 @@ int	main(int argc, char **argv)
 	normalise(arr, swp, argc - 1);
 	free(swp);
 	a = lst_ise(arr, argc - 1);
-	//free(arr);
-	// ra(&lst);
-	// ft_lstiter(lst, ft_putnbr);
 	babshka(&a, &b);
-	// ft_lstiter(lst, ft_putnbr);
-	// ft_printf("\n");
-	// ft_lstiter(swp, ft_putnbr);
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 	return (0);

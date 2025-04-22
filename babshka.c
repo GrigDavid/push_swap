@@ -11,31 +11,49 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
-int	closest(int a, t_list *b)
+int	set_range(int n)
 {
-	int		min;
+	if (n < 20)
+		return (2);
+	else if (n <= 50)
+		return (5);
+	else if (n <= 100)
+		return (14);
+	else if (n <= 200)
+		return (16);
+	else if (n <= 300)
+		return (23);
+	else if (n <= 400)
+		return (28);
+	else if (n <= 500)
+		return (30);
+	return (38);
+}
+
+int	closest(t_list *b)
+{
+	int		max;
 	int		i;
-	int		min_i;
+	int		max_i;
 	int		size;
 
-	min = INT_MAX;
+	max = INT_MIN;
 	size = ft_lstsize(b);
 	i = 0;
 	while (b)
 	{
-		if  (a - b->content < min)
+		if (b->content > max)
 		{
-			min = a - b->content;
-			min_i = i;
+			max = b->content;
+			max_i = i;
 		}
 		i++;
 		b = b->next;
 	}
-	if (min_i > size / 2)
-		min_i = -(size - min_i);
-	return (min_i);
+	if (max_i > size / 2)
+		max_i = -(size - max_i);
+	return (max_i);
 }
 
 int	min_val(t_list *a)
@@ -58,32 +76,25 @@ void	babshka(t_list **a, t_list **b)
 {
 	int	n;
 	int	k;
+	int	r;
 
-	k  = 14;
+	k = set_range(ft_lstsize(*a));
 	n = 1;
 	while (*a)
 	{
-		if ((*a)->content <= n)
+		if ((*a)->content <= n + k)
 		{
 			pa(a, b, 1);
-			n++;
-		}
-		else if ((*a)->content <= n + k)
-		{
-			pa(a, b, 1);
-			ra(b, 0);
+			if ((*a)->content > n)
+				ra(b, 0);
 			n++;
 		}
 		else
-		{
 			ra(a, 1);
-		}
 	}
-	//sort_three(a);
-	n = 100;
 	while (*b)
 	{
-		r = closest(n, *b);
+		r = closest(*b);
 		while (r > 0)
 		{
 			ra(b, 0);
