@@ -17,18 +17,8 @@ int	set_range(int n)
 	if (n < 20)
 		return (2);
 	else if (n <= 50)
-		return (5);
-	else if (n <= 100)
-		return (14);
-	else if (n <= 200)
-		return (16);
-	else if (n <= 300)
-		return (23);
-	else if (n <= 400)
-		return (28);
-	else if (n <= 500)
-		return (30);
-	return (38);
+		return (5); // hardcode kanes
+	return ((3 * n + 900) / 80);
 }
 
 int	closest(t_list *b)
@@ -72,26 +62,10 @@ int	min_val(t_list *a)
 	return (min);
 }
 
-void	babshka(t_list **a, t_list **b)
+void	ban(t_list **a, t_list **b)
 {
-	int	n;
-	int	k;
 	int	r;
 
-	k = set_range(ft_lstsize(*a));
-	n = 1;
-	while (*a)
-	{
-		if ((*a)->content <= n + k)
-		{
-			pa(a, b, 1);
-			if ((*a)->content > n)
-				ra(b, 0);
-			n++;
-		}
-		else
-			ra(a, 1);
-	}
 	while (*b)
 	{
 		r = closest(*b);
@@ -107,4 +81,26 @@ void	babshka(t_list **a, t_list **b)
 		}
 		pa (b, a, 0);
 	}
+}
+
+void	babshka(t_list **a, t_list **b)
+{
+	int	n;
+	int	k;
+
+	k = set_range(ft_lstsize(*a));
+	n = 1;
+	while (*a)
+	{
+		if ((*a)->content <= n + k)
+		{
+			pa(a, b, 1);
+			if ((*a)->content > n)
+				ra(b, 0);
+			n++;
+		}
+		else
+			ra(a, 1);
+	}
+	ban(a, b);
 }
