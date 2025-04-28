@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 	normalise(arr, swp, argc - 1);
 	free(swp);
 	a = lst_ise(arr, argc - 1);
-	babshka(&a, &b);
+	fill_b(&a, &b);
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 	return (0);

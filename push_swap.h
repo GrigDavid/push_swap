@@ -45,7 +45,7 @@ void	rra(t_list **lst, int stack);
 void	sa(t_list **t_list, int stack);
 void	pa(t_list **a, t_list **b, int stack);
 
-void	babshka(t_list **a, t_list **b);
+void	fill_b(t_list **a, t_list **b);
 void	sort_three(t_list **lst);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

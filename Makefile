@@ -14,20 +14,29 @@ CC  = cc
 CFLAGS = -Wall -Wextra -Werror
 DEPS = ft_printf.h push_swap.h
 NAME = push_swap
-SRCS = babshka.c ft_printf.c sort_three.c ft_putnbr.c extras.c extras_two.c push_swap.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstclear.c ft_lstiter.c parser.c operations.c ft_strncmp.c
+LSTS = ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstclear.c ft_lstiter.c
+LSTO = $(LSTS:%.c=%.o)
+SRCS = babshka.c ft_printf.c sort_three.c ft_putnbr.c extras.c extras_two.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstclear.c ft_lstiter.c\
+push_swap.c parser.c operations.c ft_strncmp.c
 OBJS = $(SRCS:.c=.o)
-LIBA = $(CC) -o
+LINK = $(CC) -o
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	$(LIBA) $(NAME) $(OBJS)
+	$(LINK) $(NAME) $(OBJS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# lst: $(LSTO)
+# 	echo eghav
+
+# ft_lst%.o: ft_lst%.c
+# 	$(CC) $(CFLAGS) -c ./lsts/$< -o ./objs/$@
+
 clean:
-	rm -f *.o 
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f  $(NAME)

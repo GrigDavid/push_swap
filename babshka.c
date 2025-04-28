@@ -62,28 +62,28 @@ int	min_val(t_list *a)
 	return (min);
 }
 
-void	ban(t_list **a, t_list **b)
+void	refill_a(t_list **a, t_list **b)
 {
-	int	r;
+	int	n;
 
 	while (*b)
 	{
-		r = closest(*b);
-		while (r > 0)
+		n = closest(*b);
+		while (n > 0)
 		{
 			ra(b, 0);
-			r--;
+			n--;
 		}
-		while (r < 0)
+		while (n < 0)
 		{
 			rra(b, 0);
-			r++;
+			n++;
 		}
 		pa (b, a, 0);
 	}
 }
 
-void	babshka(t_list **a, t_list **b)
+void	fill_b(t_list **a, t_list **b)
 {
 	int	n;
 	int	k;
@@ -92,15 +92,19 @@ void	babshka(t_list **a, t_list **b)
 	n = 1;
 	while (*a)
 	{
-		if ((*a)->content <= n + k)
+		if ((*a) && (*a)->content <= n)
+		{			
+			pa(a, b, 1);
+			ra(b, 0);
+			n++;
+		}
+		else if ((*a)->content <= n + k)
 		{
 			pa(a, b, 1);
-			if ((*a)->content > n)
-				ra(b, 0);
 			n++;
 		}
 		else
 			ra(a, 1);
 	}
-	ban(a, b);
+	refill_a(a, b);
 }
