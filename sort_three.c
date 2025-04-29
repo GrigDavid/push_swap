@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_three(t_list **lst)
+void	sort_three(t_stack **lst)
 {
 	if ((*lst)->content < (*lst)->next->content)
 	{

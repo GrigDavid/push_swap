@@ -110,26 +110,26 @@ void	sort(int *arr, int len)
 	}
 }
 
-t_list	*lst_ise(int *arr, int len)
+t_stack	*lst_ise(int *arr, int len)
 {
-	t_list	*lst;
+	t_stack	*lst;
 	int		i;
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	i = 0;
 	lst = 0;
 	while (i < len)
 	{
-		tmp = ft_lstnew(arr[i++]);
+		tmp = ft_stknew(arr[i++]);
 		if (!tmp)
 		{
-			ft_lstclear(&lst);
+			ft_stkclear(&lst);
 			return (NULL);
 		}
 		if (!lst)
 			lst = tmp;
 		else
-			ft_lstadd_back(&lst, tmp);
+			ft_stkadd_back(&lst, tmp);
 	}
 	free(arr);
 	return (lst);

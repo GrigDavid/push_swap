@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:09:19 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/02/01 18:24:22 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/01/22 13:43:57 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/01/27 17:59:17 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list	*ft_lstnew(int content)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_list	*list;
+	size_t	i;
 
-	list = (t_list *)malloc(sizeof(t_list));
-	if (!list)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	i = 0;
+	while (i < len)
+		((char *)b)[i++] = (char)c;
+	return (b);
 }

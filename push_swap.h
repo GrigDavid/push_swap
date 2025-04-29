@@ -14,40 +14,38 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include "ft_printf.h"
+# include "libft.h" 
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				content;
-	struct s_list	*next;
-}	t_list;
+	struct s_stack	*next;
+}	t_stack;
 
-int		ft_atoi(const char *str);
-t_list	*ft_lstnew(int content);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstclear(t_list **lst);
-void	ft_lstiter(t_list *lst, void (*f)(int));
+t_stack	*ft_stknew(int content);
+int		ft_stksize(t_stack *lst);
+t_stack	*ft_stklast(t_stack *lst);
+void	ft_stkadd_back(t_stack **lst, t_stack *new);
+void	ft_stkclear(t_stack **lst);
+void	ft_stkiter(t_stack *lst, void (*f)(int));
 
-t_list	*lst_ise(int *arr, int len);
+t_stack	*lst_ise(int *arr, int len);
 
 void	ft_putnbr(int n);
 void	sort(int *arr, int len);
 void	normalise(int *a, int *b, int len);
 int		*parser(int argc, char **argv);
 
-void	ra(t_list **lst, int stack);
-void	rra(t_list **lst, int stack);
-void	sa(t_list **t_list, int stack);
-void	pa(t_list **a, t_list **b, int stack);
+void	ra(t_stack **lst, int stack);
+void	rra(t_stack **lst, int stack);
+void	sa(t_stack **t_stack, int stack);
+void	pa(t_stack **a, t_stack **b, int stack);
 
-void	fill_b(t_list **a, t_list **b);
-void	sort_three(t_list **lst);
+void	fill_b(t_stack **a, t_stack **b);
+void	sort_three(t_stack **lst);
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	**join_argv(int argc, char **argv);
 
 #endif

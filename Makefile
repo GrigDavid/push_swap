@@ -11,34 +11,32 @@
 # **************************************************************************** #
 
 CC  = cc
-CFLAGS = -Wall -Wextra -Werror
-DEPS = ft_printf.h push_swap.h
+CFLAGS = -Wall -Wextra -Werror -I libft
 NAME = push_swap
-LSTS = ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstclear.c ft_lstiter.c
-LSTO = $(LSTS:%.c=%.o)
-SRCS = babshka.c ft_printf.c sort_three.c ft_putnbr.c extras.c extras_two.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstclear.c ft_lstiter.c\
-push_swap.c parser.c operations.c ft_strncmp.c
+DEPS = push_swap.h
+SRCS = babshka.c sort_three.c ft_stkadd_back.c ft_stkclear.c ft_stkiter.c \
+ft_stklast.c ft_stknew.c ft_stksize.c push_swap.c parser.c operations.c validation.c
 OBJS = $(SRCS:.c=.o)
-LINK = $(CC) -o
+LIBDIR = ./libft
+LIBMAKE = $(LIBDIR)/libft.a
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME) : $(OBJS)
-	$(LINK) $(NAME) $(OBJS)
+$(NAME) : $(OBJS) $(LIBMAKE)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBMAKE) -o $(NAME)
 
-%.o : %.c
+$(LIBMAKE):
+	make -C $(LIBDIR)
+
+%.o : %.c $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# lst: $(LSTO)
-# 	echo eghav
-
-# ft_lst%.o: ft_lst%.c
-# 	$(CC) $(CFLAGS) -c ./lsts/$< -o ./objs/$@
-
 clean:
+	make clean -C $(LIBDIR)
 	rm -f $(OBJS)
 
 fclean: clean
+	make fclean -C $(LIBDIR)
 	rm -f  $(NAME)
 
 re: fclean all

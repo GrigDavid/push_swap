@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void	ra(t_list **lst, int stack) //123 -> 231
+void	ra(t_stack **lst, int stack) //123 -> 231
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!(*lst)->next)
 		return ;
 	tmp = *lst;
 	*lst = (*lst)->next;
-	ft_lstlast(*lst)->next = tmp;
+	ft_stklast(*lst)->next = tmp;
 	tmp->next = NULL;
 	if (stack)
 		write(1, "ra\n", 3);
@@ -28,18 +28,18 @@ void	ra(t_list **lst, int stack) //123 -> 231
 		write(1, "rb\n", 3);
 }
 
-void	rra(t_list **lst, int stack) //123 -> 312
+void	rra(t_stack **lst, int stack) //123 -> 312
 {
-	t_list	*tmp;
-	t_list	*end;
+	t_stack	*tmp;
+	t_stack	*end;
 
 	if (!(*lst)->next)
 		return ;
 	tmp = *lst;
 	while (tmp->next->next)
 		tmp = tmp->next;
-	end = ft_lstlast(*lst);
-	ft_lstlast(*lst)->next = *lst;
+	end = ft_stklast(*lst);
+	ft_stklast(*lst)->next = *lst;
 	tmp->next = NULL;
 	*lst = end;
 	if (stack)
@@ -48,9 +48,9 @@ void	rra(t_list **lst, int stack) //123 -> 312
 		write(1, "rrb\n", 4);
 }
 
-void	sa(t_list **lst, int stack)
+void	sa(t_stack **lst, int stack)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!(*lst)->next)
 		return ;
@@ -64,9 +64,9 @@ void	sa(t_list **lst, int stack)
 		write(1, "sb\n", 3);
 }
 
-void	pa(t_list **a, t_list **b, int stack)
+void	pa(t_stack **a, t_stack **b, int stack)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	tmp = *a;
 	*a = (*a)->next;

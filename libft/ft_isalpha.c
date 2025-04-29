@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 14:57:51 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/02/03 15:24:58 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/01/22 13:02:44 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/01/27 17:48:57 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst)
+int	ft_isalpha(int c)
 {
-	t_list	*p;
-
-	if (!*lst || !lst)
-		return ;
-	while (*lst)
-	{
-		p = (*lst)->next;
-		free(*lst);
-		*lst = p;
-	}
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

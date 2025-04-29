@@ -11,16 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
-
-void	print_arr(int *arr, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-		ft_printf("%d ", arr[i++]);
-}
 
 int	ft_atoi(const char *str)
 {
@@ -72,12 +62,16 @@ int	main(int argc, char **argv)
 {
 	int		*arr;
 	int		*swp;
-	t_list	*a;
-	t_list	*b;
+	char	**mat;
+	t_stack	*a;
+	t_stack	*b;
 
 	b = NULL;
 	if (argc < 2)
 		return (0);
+	mat = join_argv(argc, argv);
+	if (!mat)
+		return(0);
 	arr = parser(argc, argv);
 	if (!arr)
 		return (0);
@@ -89,7 +83,7 @@ int	main(int argc, char **argv)
 	free(swp);
 	a = lst_ise(arr, argc - 1);
 	fill_b(&a, &b);
-	ft_lstclear(&a);
-	ft_lstclear(&b);
+	ft_stkclear(&a);
+	ft_stkclear(&b);
 	return (0);
 }

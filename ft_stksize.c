@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_t_stacksize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 16:17:49 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/02/01 16:56:32 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/02/01 18:53:27 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/02/01 18:57:46 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putnbr(int n)
+int	ft_stksize(t_stack *lst)
 {
-	char	zero;
+	int		i;
+	t_stack	*p;
 
-	zero = '0';
-	if (n == -2147483648)
+	p = lst;
+	i = 1;
+	if (!lst)
+		return (0);
+	while (p->next != 0)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		i++;
+		p = p->next;
 	}
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		ft_putnbr(-n);
-		return ;
-	}
-	if (n < 10)
-	{
-		zero += n;
-		write(1, &zero, 1);
-		return ;
-	}
-	ft_putnbr(n / 10);
-	zero += n % 10;
-	write (1, &zero, 1);
+	return (i);
 }

@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_t_stacknew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:53:27 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/02/01 18:57:46 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/02/01 18:09:19 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/02/01 18:24:22 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+t_stack	*ft_stknew(int content)
 {
-	int		i;
-	t_list	*p;
+	t_stack	*lst;
 
-	p = lst;
-	i = 1;
+	lst = (t_stack *)malloc(sizeof(t_stack));
 	if (!lst)
-		return (0);
-	while (p->next != 0)
-	{
-		i++;
-		p = p->next;
-	}
-	return (i);
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }
