@@ -14,8 +14,8 @@ CC  = cc
 CFLAGS = -Wall -Wextra -Werror -I libft
 NAME = push_swap
 DEPS = push_swap.h
-SRCS = babshka.c sort_three.c ft_stkadd_back.c ft_stkclear.c ft_stkiter.c \
-ft_stklast.c ft_stknew.c ft_stksize.c push_swap.c parser.c operations.c validation.c
+SRCS = babshka.c sort_three.c ft_stkadd_back.c ft_stkclear.c ft_stklast.c \
+ft_stknew.c ft_stksize.c push_swap.c parser.c operations.c validation.c
 OBJS = $(SRCS:.c=.o)
 LIBDIR = ./libft
 LIBMAKE = $(LIBDIR)/libft.a

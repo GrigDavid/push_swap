@@ -29,7 +29,6 @@ int		ft_stksize(t_stack *lst);
 t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
 void	ft_stkclear(t_stack **lst);
-void	ft_stkiter(t_stack *lst, void (*f)(int));
 
 t_stack	*lst_ise(int *arr, int len);
 

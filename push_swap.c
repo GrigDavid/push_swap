@@ -58,6 +58,17 @@ int	*arr_cpy(int *arr, int len)
 	return (res);
 }
 
+int	is_sorted(t_stack *lst)
+{
+	while (lst->next)
+	{
+		if (lst->content > lst->next->content)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int		*arr;
@@ -82,7 +93,8 @@ int	main(int argc, char **argv)
 	normalise(arr, swp, argc - 1);
 	free(swp);
 	a = lst_ise(arr, argc - 1);
-	fill_b(&a, &b);
+	if (!is_sorted(a))
+		fill_b(&a, &b);
 	ft_stkclear(&a);
 	ft_stkclear(&b);
 	return (0);
