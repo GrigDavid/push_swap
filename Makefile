@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/27 15:28:27 by dgrigor2          #+#    #+#              #
-#    Updated: 2025/04/17 18:53:10 by dgrigor2         ###   ########.fr        #
+#    Updated: 2025/05/05 16:57:26 by dgrigor2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ CC  = cc
 CFLAGS = -Wall -Wextra -Werror -I libft
 NAME = push_swap
 DEPS = push_swap.h
-SRCS = babshka.c sort_three.c ft_stkadd_back.c ft_stkclear.c ft_stklast.c \
-ft_stknew.c ft_stksize.c push_swap.c parser.c operations.c validation.c
+SRCS = algorythm.c sort_three.c ft_stkadd_back.c ft_stkclear.c ft_stklast.c \
+ft_stknew.c ft_stksize.c push_swap.c parser.c operations.c
 OBJS = $(SRCS:.c=.o)
 LIBDIR = ./libft
 LIBMAKE = $(LIBDIR)/libft.a

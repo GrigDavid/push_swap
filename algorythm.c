@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   babshka.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 17:41:27 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/04/18 17:41:28 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/05 16:50:36 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/05 16:50:37 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,9 +148,9 @@ void	fill_b(t_stack **a, t_stack **b)
 	while (*a)
 	{
 		if ((*a)->content <= n + k)
-		{
+		{ 
 			pa(a, b, 1);
-			if ((*a)->content <= n)
+			if ((*b)->content > n)
 				ra(b, 0);
 			n++;
 		}

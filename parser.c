@@ -23,7 +23,7 @@ static int	check_zero(char *str)
 	return (0);
 }
 
-int	check_dubles(int *arr, int i)
+int	check_doubles(int *arr, int i)
 {
 	int	j;
 
@@ -36,50 +36,47 @@ int	check_dubles(int *arr, int i)
 	}
 	return(1);
 }
-
-int	*parser(int argc, char **argv)
-{
-	int	i;
-	int	*res;
-
-	i = 0;
-	argc--;
-	res = (int *)malloc(sizeof(int) * argc);
-	if (!res)
-		return (NULL);
-	while (i < argc)
-	{
-		res[i] = ft_atoi(argv[i + 1]);
-		if (!check_dubles(res, i))
-			return (free(res), NULL);
-		if (res[i] == 0 && !check_zero(argv[i + 1]))
-			return (free(res), NULL);
-		i++;
-	}
-	return (res);
-}
-
-
 static char	*strglue(char *s1, const char *s2)
 {
 	char	*res;
-	int		i;
-	int		j;	
+	char	*tmp;
 
-	res = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
+	if (!s2)
+		return(s1);
+	tmp = ft_strjoin(s1, " ");
+	if (!tmp)
+		return (free(s1), NULL);
+	res = ft_strjoin(tmp, s2);
 	if (!res)
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		res[i] = s1[i];
-	j = 0;
-	res[i + j] = ' ';
-	while (s2[++j])
-		res[i + j] = s2[j];
-	res[i + j] = '\0';
+		return (free(s1), free(tmp), NULL);
+	free(tmp);
 	free(s1);
 	return (res);
 }
+
+
+
+
+// static char	*strglue(char *s1, const char *s2)
+// {
+// 	char	*res;
+// 	int		i;
+// 	int		j;	
+
+// 	res = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
+// 	if (!res)
+// 		return (free(s1), NULL);
+// 	i = -1;
+// 	while (s1[++i])
+// 		res[i] = s1[i];
+// 	j = 0;
+// 	res[i + j] = ' ';
+// 	while (s2[++j])
+// 		res[i + j] = s2[j];
+// 	res[i + j] = '\0';
+// 	free(s1);
+// 	return (res);
+// }
 
 char	**join_argv(int argc, char **argv)
 {
@@ -105,8 +102,33 @@ char	**join_argv(int argc, char **argv)
 	return(mat);
 }
 
+int	*parser(int *argc, char **argv)
+{
+	int	i;
+	int	*res;
 
-
+	
+	argv = join_argv(*argc, argv);
+	if (!argv || !*argv)
+		return (NULL);
+	*argc = 0;
+	while (argv[*argc])
+		(*argc)++;
+	res = (int *)malloc(sizeof(int) * (*argc));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < *argc)
+	{
+		res[i] = ft_atoi(argv[i]);
+		if (!check_doubles(res, i))
+			return (free(res), NULL);
+		if (res[i] == 0 && !check_zero(argv[i]))
+			return (free(res), NULL);
+		i++;
+	}
+	return (res);
+}
 
 void	normalise(int *a, int *b, int len)
 {

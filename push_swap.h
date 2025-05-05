@@ -35,7 +35,7 @@ t_stack	*lst_ise(int *arr, int len);
 void	ft_putnbr(int n);
 void	sort(int *arr, int len);
 void	normalise(int *a, int *b, int len);
-int		*parser(int argc, char **argv);
+int		*parser(int *argc, char **argv);
 
 void	ra(t_stack **lst, int stack);
 void	rra(t_stack **lst, int stack);
@@ -44,6 +44,7 @@ void	pa(t_stack **a, t_stack **b, int stack);
 
 void	fill_b(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
+int		check_sorted(t_stack *lst);
 
 char	**join_argv(int argc, char **argv);
 

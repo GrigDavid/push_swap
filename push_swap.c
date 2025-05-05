@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:24:14 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/04/09 13:24:15 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:53:56 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,27 @@ int	main(int argc, char **argv)
 {
 	int		*arr;
 	int		*swp;
-	char	**mat;
 	t_stack	*a;
 	t_stack	*b;
 
 	b = NULL;
-	if (argc < 2)
-		return (0);
-	mat = join_argv(argc, argv);
-	if (!mat)
-		return(0);
-	arr = parser(argc, argv);
+	arr = parser(&argc, argv);
 	if (!arr)
-		return (0);
-	swp = arr_cpy(arr, argc - 1);
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
+	swp = arr_cpy(arr, argc);
 	if (!swp)
-		return (free(arr), 0);
-	sort(swp, argc - 1);
-	normalise(arr, swp, argc - 1);
+	{
+		free(arr);
+		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
+	sort(swp, argc);
+	normalise(arr, swp, argc);
 	free(swp);
-	a = lst_ise(arr, argc - 1);
+	a = lst_ise(arr, argc);
 	if (!is_sorted(a))
 		fill_b(&a, &b);
 	ft_stkclear(&a);
