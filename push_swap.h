@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 13:25:17 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/04/09 13:25:19 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/05 17:16:39 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/05 17:28:24 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	ft_stkclear(t_stack **lst);
 
 t_stack	*lst_ise(int *arr, int len);
 
-void	ft_putnbr(int n);
 void	sort(int *arr, int len);
 void	normalise(int *a, int *b, int len);
 int		*parser(int *argc, char **argv);
@@ -46,6 +45,7 @@ void	fill_b(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
 int		check_sorted(t_stack *lst);
 
-char	**join_argv(int argc, char **argv);
+void	refill_a(t_stack **a, t_stack **b);
+int		alt_atoi(const char *str);
 
 #endif

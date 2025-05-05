@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   babshka.c                                          :+:      :+:    :+:   */
+/*   algorythm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 16:50:36 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 16:50:37 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/05 17:14:31 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/05 17:14:32 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static int	min_val(t_stack *a)
 
 static void	roll_to_min(t_stack **lst)
 {
-	int	min;
-	int	min_cor;
+	int		min;
+	int		min_cor;
 	t_stack	*tmp;
 
 	min_cor = 0;
@@ -77,60 +77,13 @@ static void	sort_n(t_stack **a, t_stack **b, int n)
 	}
 }
 
-int	set_range(int n)
+static int	set_range(int n)
 {
 	if (n < 20)
 		return (2);
 	else if (n <= 50)
 		return (5); // hardcode kanes
 	return ((3 * n + 900) / 80);
-}
-
-static int	closest(t_stack *b)
-{
-	int		max;
-	int		i;
-	int		max_i;
-	int		size;
-
-	max = b->content;
-	max_i = 0;
-	size = ft_stksize(b);
-	i = 0;
-	while (b)
-	{
-		if (b->content > max)
-		{
-			max = b->content;
-			max_i = i;
-		}
-		i++;
-		b = b->next;
-	}
-	if (max_i > size / 2)
-		max_i = -(size - max_i);
-	return (max_i);
-}
-
-static void	refill_a(t_stack **a, t_stack **b)
-{
-	int	n;
-
-	while (*b)
-	{
-		n = closest(*b);
-		while (n > 0)
-		{
-			ra(b, 0);
-			n--;
-		}
-		while (n < 0)
-		{
-			rra(b, 0);
-			n++;
-		}
-		pa (b, a, 0);
-	}
 }
 
 void	fill_b(t_stack **a, t_stack **b)
@@ -148,7 +101,7 @@ void	fill_b(t_stack **a, t_stack **b)
 	while (*a)
 	{
 		if ((*a)->content <= n + k)
-		{ 
+		{
 			pa(a, b, 1);
 			if ((*b)->content > n)
 				ra(b, 0);
