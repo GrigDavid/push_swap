@@ -6,7 +6,7 @@
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:39 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:28:24 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/06 14:05:20 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ int		check_sorted(t_stack *lst);
 
 void	refill_a(t_stack **a, t_stack **b);
 int		alt_atoi(const char *str);
+
+int		arr_cpy(int *arr, int len);
+void	free_mat(char **arr, int i);
 
 #endif

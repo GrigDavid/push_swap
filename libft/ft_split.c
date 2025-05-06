@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:52:03 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/02/01 20:14:30 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/06 14:03:32 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free(char **arr, int i)
+static void	ft_free(char **arr, int i)
 {
 	int	j;
 
@@ -25,7 +25,7 @@ void	ft_free(char **arr, int i)
 	free(arr);
 }
 
-void	ft_fill(char **arr, const char *s, int words, char c)
+static void	ft_fill(char **arr, const char *s, int words, char c)
 {
 	int	i;
 	int	j;

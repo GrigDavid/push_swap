@@ -6,7 +6,7 @@
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:22 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:28:18 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/06 14:30:27 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,23 +85,24 @@ int	*parser(int *argc, char **argv)
 	int	*res;
 
 	argv = join_argv(*argc, argv);
-	if (!argv || !*argv)
+	if (!argv)
 		return (NULL);
 	*argc = 0;
 	while (argv[*argc])
 		(*argc)++;
 	res = (int *)malloc(sizeof(int) * (*argc));
 	if (!res)
-		return (NULL);
+		return (free_mat(argv, *argc), NULL);
 	i = 0;
 	while (i < *argc)
 	{
 		res[i] = alt_atoi(argv[i]);
 		if (!check_doubles(res, i))
-			return (free(res), NULL);
+			return (free_mat(argv, *argc), free(res), NULL);
 		if (res[i] == 0 && !check_zero(argv[i]))
-			return (free(res), NULL);
+			return (free_mat(argv, *argc), free(res), NULL);
 		i++;
 	}
+	free_mat(argv, *argc);
 	return (res);
 }
