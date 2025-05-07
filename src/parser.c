@@ -6,11 +6,11 @@
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:22 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/06 14:30:27 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:21:35 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	check_zero(char *str)
 {

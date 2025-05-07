@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   alt_atoi.c                                         :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 17:24:38 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:25:23 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/07 16:36:31 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/07 16:44:09 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	alt_atoi(const char *str)
+int	main(int argc, char **argv)
 {
-	int		sign;
-	long	num;
+	int		*arr;
+	t_stack	*a;
+	t_stack	*b;
 
-	sign = 0;
-	num = 0;
-	if (*str == '-')
+	b = NULL;
+	if (argc < 2)
+		return (0);
+	arr = parser(&argc, argv);
+	if (!arr)
 	{
-		sign = -1;
-		str++;
+		ft_putstr_fd("Error\n", 2);
+		return (1);
 	}
-	else if (*str == '+')
-		str++;
-	while (*str)
+	if (!arr_cpy(arr, argc))
 	{
-		if (*str >= '0' && *str <= '9')
-			num = 10 * num + *str - '0';
-		else
-			return (0);
-		if (num + sign > INT_MAX)
-			return (0);
-		str++;
+		free(arr);
+		ft_putstr_fd("Error\n", 2);
+		return (1);
 	}
-	if (sign)
-		num *= sign;
-	return (num);
+	a = lst_ise(arr, argc);
+	//anavart(voshiban charac)
 }
+
+
+
+
+
+

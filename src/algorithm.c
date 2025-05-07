@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorythm.c                                        :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:14:31 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:14:32 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:20:29 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	min_val(t_stack *a)
 {
@@ -82,7 +82,7 @@ static int	set_range(int n)
 	if (n < 20)
 		return (2);
 	else if (n <= 50)
-		return (5); // hardcode kanes
+		return (8);
 	return ((3 * n + 900) / 80);
 }
 

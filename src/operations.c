@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:15 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:16:16 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:20:38 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ra(t_stack **lst, int stack) //123 -> 231
+void	ra(t_stack **lst, int stack)
 {
 	t_stack	*tmp;
 
@@ -28,7 +28,7 @@ void	ra(t_stack **lst, int stack) //123 -> 231
 		write(1, "rb\n", 3);
 }
 
-void	rra(t_stack **lst, int stack) //123 -> 312
+void	rra(t_stack **lst, int stack)
 {
 	t_stack	*tmp;
 	t_stack	*end;

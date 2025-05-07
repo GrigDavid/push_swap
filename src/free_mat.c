@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stksize.c                                       :+:      :+:    :+:   */
+/*   free_mat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 17:15:51 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:15:52 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/07 14:41:03 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/07 16:20:34 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_stksize(t_stack *lst)
+void	free_mat(char **arr, int i)
 {
-	int		i;
-	t_stack	*p;
+	int	j;
 
-	p = lst;
-	i = 1;
-	if (!lst)
-		return (0);
-	while (p->next != 0)
+	j = 0;
+	while (j < i)
 	{
-		i++;
-		p = p->next;
+		free(arr[j]);
+		j++;
 	}
-	return (i);
+	free(arr);
 }

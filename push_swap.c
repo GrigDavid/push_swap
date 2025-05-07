@@ -6,12 +6,11 @@
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:30 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/06 14:24:49 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/07 14:40:30 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static int	is_sorted(t_stack *lst)
 {

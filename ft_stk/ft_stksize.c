@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stknew.c                                        :+:      :+:    :+:   */
+/*   ft_stksize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 17:18:54 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/05 17:18:56 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/05 17:15:51 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/07 16:17:11 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack	*ft_stknew(int content)
+int	ft_stksize(t_stack *lst)
 {
-	t_stack	*lst;
+	int		i;
+	t_stack	*p;
 
-	lst = (t_stack *)malloc(sizeof(t_stack));
+	p = lst;
+	i = 1;
 	if (!lst)
-		return (NULL);
-	lst->content = content;
-	lst->next = NULL;
-	return (lst);
+		return (0);
+	while (p->next != 0)
+	{
+		i++;
+		p = p->next;
+	}
+	return (i);
 }
