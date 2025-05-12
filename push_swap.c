@@ -6,22 +6,11 @@
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:30 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/07 14:40:30 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:23:17 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	is_sorted(t_stack *lst)
-{
-	while (lst->next)
-	{
-		if (lst->content > lst->next->content)
-			return (0);
-		lst = lst->next;
-	}
-	return (1);
-}
 
 int	main(int argc, char **argv)
 {

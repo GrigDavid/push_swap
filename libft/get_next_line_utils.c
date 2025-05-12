@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:04:53 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/02/15 19:12:22 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/12 14:36:22 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_free(char **str)
+static size_t	ft_strlen(const char *s)
 {
-	free(*str);
-	*str = NULL;
-}
-
-int	ft_strlen(const char *s)
-{
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (s[len])
 		len++;
 	return (len);
+}
+
+void	ft_free(char **str)
+{
+	free(*str);
+	*str = NULL;
 }
 
 int	ft_first(char *str)

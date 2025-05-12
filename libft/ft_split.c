@@ -6,13 +6,13 @@
 /*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:52:03 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/06 14:03:32 by dgrigor2         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:16:32 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free(char **arr, int i)
+static void	ft_free_mat(char **arr, int i)
 {
 	int	j;
 
@@ -42,7 +42,7 @@ static void	ft_fill(char **arr, const char *s, int words, char c)
 			t++;
 		arr[i] = ft_substr(s, j, t - j);
 		if (!arr[i])
-			ft_free(arr, j);
+			ft_free_mat(arr, j);
 		j = t;
 		i++;
 	}

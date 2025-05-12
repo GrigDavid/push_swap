@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stkclear.c                                      :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgrigor2 <dgrigor2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dgrigor2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 17:15:29 by dgrigor2          #+#    #+#             */
-/*   Updated: 2025/05/12 14:23:43 by dgrigor2         ###   ########.fr       */
+/*   Created: 2025/05/12 14:24:38 by dgrigor2          #+#    #+#             */
+/*   Updated: 2025/05/12 14:24:40 by dgrigor2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_stkclear(t_stack **lst)
+int	is_sorted(t_stack *lst)
 {
-	t_stack	*p;
-
-	if (!*lst || !lst)
-		return ;
-	while (*lst)
+	if (!lst)
+		return (1);
+	while (lst->next)
 	{
-		p = (*lst)->next;
-		free(*lst);
-		*lst = p;
+		if (lst->content > lst->next->content)
+			return (0);
+		lst = lst->next;
 	}
+	return (1);
 }
